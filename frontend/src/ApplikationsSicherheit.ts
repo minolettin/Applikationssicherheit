@@ -1,5 +1,5 @@
-import { css, html, LitElement, property } from 'lit-element';
-import { openWcLogo } from './open-wc-logo.js';
+import {css, html, LitElement, property} from 'lit-element';
+import {openWcLogo} from './open-wc-logo.js';
 
 export class ApplikationsSicherheit extends LitElement {
   @property({ type: String }) title = 'My app';

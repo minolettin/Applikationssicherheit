@@ -1,4 +1,4 @@
-package ch.gibb.Applikationssicherheit;
+package ch.gibb.applikationssicherheit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
