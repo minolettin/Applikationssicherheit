@@ -1,4 +1,4 @@
-package ch.gibb.applikationssicherheit.rest.configuration;
+package ch.gibb.applikationssicherheit.configuration;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

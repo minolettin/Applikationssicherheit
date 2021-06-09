@@ -1,4 +1,4 @@
-package ch.gibb.applikationssicherheit.rest.service;
+package ch.gibb.applikationssicherheit.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
