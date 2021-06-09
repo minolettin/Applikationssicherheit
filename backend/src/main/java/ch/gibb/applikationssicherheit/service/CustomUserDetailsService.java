@@ -1,4 +1,4 @@
-package ch.gibb.applikationssicherheit.configuration;
+package ch.gibb.applikationssicherheit.service;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -14,18 +14,16 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        List<SimpleGrantedAuthority> roles=null;
+        List<SimpleGrantedAuthority> roles;
         if(username.equals("admin"))
         {
             roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            return new User("admin", "admin",
-                    roles);
+            return new User("admin", "admin", roles);
         }
         else if(username.equals("user"))
         {
             roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
-            return new User("user", "user",
-                    roles);
+            return new User("user", "user", roles);
         }
         throw new UsernameNotFoundException("User not found with username: " + username);
     }
