@@ -1,6 +1,8 @@
 import {css, html, LitElement, property} from 'lit-element';
+import {customElement} from 'lit/decorators.js';
 import {openWcLogo} from './open-wc-logo.js';
 
+@customElement('applikations-sicherheit')
 export class ApplikationsSicherheit extends LitElement {
   @property({ type: String }) title = 'My app';
 

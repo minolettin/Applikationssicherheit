@@ -1,4 +1,5 @@
 dependencies:
+  lit: 2.0.0-rc.2
   lit-element: 2.5.1
   lit-html: 1.4.1
 devDependencies:
@@ -69,6 +70,10 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-5v7TDE9plVhvxQeWLXDTvFvJBdH6pEsdnl2g/dAptmuFEPedQ4Erq5rsDsX+mvAM610IhNaO2W5V1dOOnDKxkQ==
+  /@lit/reactive-element/1.0.0-rc.2:
+    dev: false
+    resolution:
+      integrity: sha512-cujeIl5Ei8FC7UHf4/4Q3bRJOtdTe1vpJV/JEBYCggedmQ+2P8A2oz7eE+Vxi6OJ4nc0X+KZxXnBoH4QrEbmEQ==
   /@nodelib/fs.scandir/2.1.4:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
@@ -274,6 +279,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ZFqF6qa48XsPdjXV5Gsz0Zqmux2PerNd3a/ktL45mHpa19cuMi/cL8tcxdAx497yRh+QtYPuofjT9oWw9P7nkA==
+  /@types/trusted-types/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-230RC8sFeHoT6sSUlRO6a8cAnclO06eeiq1QDfiv2FGCLWFvvERWgwIQD4FWqD9A69BN7Lzee4OXwoMVnnsWDw==
   /@types/ws/7.4.4:
     dependencies:
       '@types/node': 15.12.0
@@ -2306,10 +2315,31 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ogu7PiJTA33bEK0xGu1dmaX5vhcRjBXCFexPja0e7P7jqLhTpNKYRPmE+GmiCaRVAbiQKGkUgkh/i6+bh++dPQ==
+  /lit-element/3.0.0-rc.2:
+    dependencies:
+      '@lit/reactive-element': 1.0.0-rc.2
+      lit-html: 2.0.0-rc.3
+    dev: false
+    resolution:
+      integrity: sha512-2Z7DabJ3b5K+p5073vFjMODoaWqy5PIaI4y6ADKm+fCGc8OnX9fU9dMoUEBZjFpd/bEFR9PBp050tUtBnT9XTQ==
   /lit-html/1.4.1:
     dev: false
     resolution:
       integrity: sha512-B9btcSgPYb1q4oSOb/PrOT6Z/H+r6xuNzfH4lFli/AWhYwdtrgQkQWBbIc6mdnf6E2IL3gDXdkkqNktpU0OZQA==
+  /lit-html/2.0.0-rc.3:
+    dependencies:
+      '@types/trusted-types': 1.0.6
+    dev: false
+    resolution:
+      integrity: sha512-Y6P8LlAyQuqvzq6l/Nc4z5/P5M/rVLYKQIRxcNwSuGajK0g4kbcBFQqZmgvqKG+ak+dHZjfm2HUw9TF5N/pkCw==
+  /lit/2.0.0-rc.2:
+    dependencies:
+      '@lit/reactive-element': 1.0.0-rc.2
+      lit-element: 3.0.0-rc.2
+      lit-html: 2.0.0-rc.3
+    dev: false
+    resolution:
+      integrity: sha512-BOCuoJR04WaTV8UqTKk09cNcQA10Aq2LCcBOiHuF7TzWH5RNDsbCBP5QM9sLBSotGTXbDug/gFO08jq6TbyEtw==
   /load-json-file/1.1.0:
     dependencies:
       graceful-fs: 4.2.6
@@ -3759,6 +3789,7 @@ specifiers:
   eslint-config-prettier: ^7.2.0
   husky: ^4.3.8
   lint-staged: ^10.5.4
+  lit: ^2.0.0-rc.2
   lit-element: ^2.5.1
   lit-html: ^1.4.1
   prettier: ^2.2.1
