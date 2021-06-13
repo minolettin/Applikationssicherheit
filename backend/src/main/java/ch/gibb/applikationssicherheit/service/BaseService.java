@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import java.text.MessageFormat;
 
 @Service
-public class ResourceService {
-    private static final Logger LOG = LoggerFactory.getLogger(ResourceService.class);
+public class BaseService {
+    private static final Logger LOG = LoggerFactory.getLogger(BaseService.class);
 
 
     public String executeCommand(String command) {

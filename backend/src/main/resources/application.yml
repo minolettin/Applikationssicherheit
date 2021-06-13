@@ -1,2 +1,14 @@
+logging.level.org.springframework: ERROR
 server.port: 7030
+
+# spring config
+spring:
+  main.banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/applikationssicherheit
+    username: postgres
+    password: password
+  jpa:
+    hibernate.ddl-auto: none # in return crate schemas from sql files
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
 

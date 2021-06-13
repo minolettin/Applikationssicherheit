@@ -1,24 +1,24 @@
 package ch.gibb.applikationssicherheit.controllers;
 
-import ch.gibb.applikationssicherheit.service.ResourceService;
+import ch.gibb.applikationssicherheit.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-public class UserResource {
+public class BaseController {
 
     @Autowired
-    ResourceService resourceService;
+    BaseService baseService;
 
     @GetMapping({"/executecommand"})
     public String executeCommand(@RequestParam(name = "sysopt") String command) {
-        return resourceService.executeCommand(command);
+        return baseService.executeCommand(command);
     }
 
     @PostMapping({"/register"})
     public String register(@RequestParam String username, String password) {
-        return resourceService.register(username, password);
+        return baseService.register(username, password);
     }
 
 }
