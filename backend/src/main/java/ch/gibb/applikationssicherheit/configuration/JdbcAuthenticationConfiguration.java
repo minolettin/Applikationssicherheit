@@ -1,5 +1,6 @@
 package ch.gibb.applikationssicherheit.configuration;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,20 +10,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 
+@RequiredArgsConstructor
 @Configuration
 public class JdbcAuthenticationConfiguration {
 
-    @Autowired
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     @Autowired
-    public void config(AuthenticationManagerBuilder auth)
-            throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource);
+    public void config(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource);
     }
 
-    // todo: Do PasswordEncoder Tutorial
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

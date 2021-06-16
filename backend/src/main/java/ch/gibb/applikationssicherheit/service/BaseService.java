@@ -8,18 +8,12 @@ import java.text.MessageFormat;
 
 @Service
 public class BaseService {
-    private static final Logger LOG = LoggerFactory.getLogger(BaseService.class);
 
+    private static final Logger LOG = LoggerFactory.getLogger(BaseService.class);
 
     public String executeCommand(String command) {
         // todo: replace with final code
         LOG.info("executed command: {}", command);
         return MessageFormat.format("executed command: {0}", command);
-    }
-
-    public String register(String username, String password) {
-        // todo: replace with final code
-        LOG.info("registered user: {}", username);
-        return MessageFormat.format("registered user: {0} with pw: {1}", username, password);
     }
 }

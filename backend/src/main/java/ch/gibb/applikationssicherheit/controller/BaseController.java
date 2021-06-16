@@ -1,24 +1,18 @@
-package ch.gibb.applikationssicherheit.controllers;
+package ch.gibb.applikationssicherheit.controller;
 
 import ch.gibb.applikationssicherheit.service.BaseService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/auth")
 public class BaseController {
 
-    @Autowired
-    BaseService baseService;
+    private final BaseService baseService;
 
     @GetMapping({"/executecommand"})
     public String executeCommand(@RequestParam(name = "sysopt") String command) {
         return baseService.executeCommand(command);
     }
-
-    @PostMapping({"/register"})
-    public String register(@RequestParam String username, String password) {
-        return baseService.register(username, password);
-    }
-
 }
