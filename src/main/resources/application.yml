@@ -1,0 +1,16 @@
+logging.level.org.springframework: ERROR
+server.port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/applikationssicherheit
+    username: postgres
+    password: password
+  jpa:
+    hibernate.ddl-auto: none
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+
+applikationssicherheit:
+  jwtExpirationMillis: 7200000
+  jwtSigningKey: a76Fjlv%&fHFcR&/d
+
