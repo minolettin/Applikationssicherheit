@@ -24,23 +24,23 @@ public class PersonResource {
 
     private final JWTService jwtService;
 
-    @GetMapping(value = "/users", params = {"userId"})
-    public ResponseEntity<PersonDTO> findPersonById(@RequestParam(name = "userId") Long personId) {
+    @GetMapping(value = "/persons", params = {"personId"})
+    public ResponseEntity<PersonDTO> findPersonById(@RequestParam(name = "personId") Long personId) {
         return ResponseEntity.ok(personService.findById(personId));
     }
 
-    @PostMapping("/users/sign-up")
+    @PostMapping("/persons/sign-up")
     public ResponseEntity<PersonDTO> register(@Valid @RequestBody RegisterForm registerForm) {
         Person newPerson = new Person(registerForm.getUsername(), registerForm.getPassword());
         return new ResponseEntity<>(personService.create(newPerson), HttpStatus.CREATED);
     }
 
-    @PostMapping("/users/sign-in")
+    @PostMapping("/persons/sign-in")
     public ResponseEntity<JwtResponse> login(@Valid @RequestBody LoginForm loginForm) {
         return ResponseEntity.ok(personService.login(loginForm));
     }
 
-    @GetMapping("/users/identify")
+    @GetMapping("/persons/identify")
     public ResponseEntity<PersonDTO> identify(HttpServletRequest request) {
         String username = jwtService.getSubjectFromJwt(jwtService.getJwt(request));
         return ResponseEntity.ok(personService.getPersonDTOByUsername(username));

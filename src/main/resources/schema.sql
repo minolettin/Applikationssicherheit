@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS person_authority;
 DROP TABLE IF EXISTS person;
 DROP TABLE IF EXISTS authority;
+DROP SEQUENCE IF EXISTS sequence_generator;
 
 CREATE TABLE person(
     id int NOT NULL UNIQUE,
@@ -23,3 +24,5 @@ CREATE TABLE person_authority(
     FOREIGN KEY (person_id) REFERENCES person(id),
     FOREIGN KEY (authority_id) REFERENCES authority(id)
 );
+
+CREATE SEQUENCE sequence_generator start 1000 increment 1;

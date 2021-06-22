@@ -5,7 +5,7 @@ import ch.gibb.applikationssicherheit.service.dto.PersonDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {PersonAuthorityMapper.class})
 public interface PersonMapper extends EntityMapper<PersonDTO, Person> {
 
     PersonDTO toDto(Person person);

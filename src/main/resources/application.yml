@@ -3,6 +3,7 @@ server.port: 8080
 
 spring:
   datasource:
+    initialization-mode: always
     url: jdbc:postgresql://localhost:5432/applikationssicherheit
     username: postgres
     password: password
