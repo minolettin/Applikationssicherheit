@@ -8,6 +8,8 @@ import ch.gibb.applikationssicherheit.web.rest.util.JwtResponse;
 import ch.gibb.applikationssicherheit.web.rest.util.LoginForm;
 import ch.gibb.applikationssicherheit.web.rest.util.RegisterForm;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,11 +25,6 @@ public class PersonResource {
     private final PersonService personService;
 
     private final JWTService jwtService;
-
-    @GetMapping(value = "/persons", params = {"personId"})
-    public ResponseEntity<PersonDTO> findPersonById(@RequestParam(name = "personId") Long personId) {
-        return ResponseEntity.ok(personService.findById(personId));
-    }
 
     @PostMapping("/persons/sign-up")
     public ResponseEntity<PersonDTO> register(@Valid @RequestBody RegisterForm registerForm) {

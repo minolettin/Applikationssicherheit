@@ -4,10 +4,13 @@ import ch.gibb.applikationssicherheit.domain.Person;
 import ch.gibb.applikationssicherheit.repository.PersonRepository;
 import ch.gibb.applikationssicherheit.service.dto.PersonDTO;
 import ch.gibb.applikationssicherheit.service.mapper.PersonMapper;
+import ch.gibb.applikationssicherheit.web.rest.PersonResource;
 import ch.gibb.applikationssicherheit.web.rest.errors.BadRequestAlertException;
 import ch.gibb.applikationssicherheit.web.rest.util.JwtResponse;
 import ch.gibb.applikationssicherheit.web.rest.util.LoginForm;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,6 +27,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PersonService implements UserDetailsService {
 
+    private final Logger logger = LoggerFactory.getLogger(PersonService.class);
+
     private final PersonRepository personRepository;
 
     private final PersonMapper personMapper;
@@ -34,18 +39,12 @@ public class PersonService implements UserDetailsService {
 
     private final JWTService jwtService;
 
-    public PersonDTO findById(Long id) {
-        Optional<Person> person = personRepository.findById(id);
-        if (person.isEmpty()) {
-            throw new BadRequestAlertException("USER COULD NOT BE FOUND");
-        }
-        return personMapper.toDto(person.get());
-    }
-
     public PersonDTO create(Person person) {
         if (personRepository.existsByUsername(person.getUsername())) {
+            logger.error("Registering didn't work because username " + person.getUsername() + " is already taken!");
             throw new BadRequestAlertException("USERNAME IS ALREADY USED");
         }
+        logger.info("Person has registered with username: " + person.getUsername());
         person.setPassword(passwordEncoder.encode(person.getPassword()));
         return personMapper.toDto(personRepository.save(person));
     }
@@ -56,6 +55,7 @@ public class PersonService implements UserDetailsService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtService.generateJwt(authentication);
         PersonDTO personDTO = personMapper.toDto((Person) authentication.getPrincipal());
+        logger.info("Person has logged in with username: " + loginForm.getUsername());
         return new JwtResponse(jwt, personDTO);
     }
 
