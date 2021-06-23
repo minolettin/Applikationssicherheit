@@ -29,6 +29,16 @@ public class Person implements UserDetails {
     @NotEmpty
     private String username;
 
+    @Size(max = 50)
+    @NotEmpty
+    @Column(name = "firstname")
+    private String firstName;
+
+    @Size(max = 50)
+    @NotEmpty
+    @Column(name = "lastname")
+    private String lastName;
+
     @Size(max = 100)
     @NotEmpty
     private String password;
@@ -38,8 +48,10 @@ public class Person implements UserDetails {
     @EqualsAndHashCode.Exclude
     private Set<PersonAuthority> personAuthorities = new HashSet<>();
 
-    public Person(String username, String password) {
+    public Person(String username, String firstName, String lastName, String password) {
         this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
     }
 

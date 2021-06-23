@@ -28,7 +28,7 @@ public class PersonResource {
 
     @PostMapping("/persons/sign-up")
     public ResponseEntity<PersonDTO> register(@Valid @RequestBody RegisterForm registerForm) {
-        Person newPerson = new Person(registerForm.getUsername(), registerForm.getPassword());
+        Person newPerson = new Person(registerForm.getUsername(), registerForm.getFirstName(), registerForm.getLastName(), registerForm.getPassword());
         return new ResponseEntity<>(personService.create(newPerson), HttpStatus.CREATED);
     }
 

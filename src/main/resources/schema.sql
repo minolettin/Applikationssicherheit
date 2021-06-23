@@ -6,6 +6,8 @@ DROP SEQUENCE IF EXISTS sequence_generator;
 CREATE TABLE person(
     id int NOT NULL UNIQUE,
     username VARCHAR(50) NOT NULL UNIQUE,
+    firstname VARCHAR(50) NOT NULL UNIQUE,
+    lastname VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );

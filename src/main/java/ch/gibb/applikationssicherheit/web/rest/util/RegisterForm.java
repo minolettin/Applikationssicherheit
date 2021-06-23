@@ -15,6 +15,14 @@ public class RegisterForm {
     private String username;
 
     @NotEmpty
+    @Size(max = 50)
+    private String firstName;
+
+    @NotEmpty
+    @Size(max = 50)
+    private String lastName;
+
+    @NotEmpty
     @Size(min = 8, max = 50, message = "INVALID PASSWORD")
     private String password;
 }

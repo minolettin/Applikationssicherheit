@@ -12,5 +12,9 @@ public class PersonDTO implements Serializable {
 
     private String username;
 
+    private String firstName;
+
+    private String lastName;
+
     private Set<PersonAuthorityDTO> personAuthorities;
 }
